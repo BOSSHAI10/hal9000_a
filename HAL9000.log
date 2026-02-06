@@ -250,8 +250,8 @@ Bus: 0 -> 255
 [system.c][231]AcpiInterfaceInit suceeded
 [lapic_system.c][79]_LapicInstallInterruptRoutines succeeeded
 [lapic_system.c][89]_LapicSystemMapRegister succeeded
-[lapic_system.c][92]CPU frequency: 0x3953765C
-[lapic_system.c][95]Divided bus frequency: 0xE54DD9
+[lapic_system.c][92]CPU frequency: 0x463F2E24
+[lapic_system.c][95]Divided bus frequency: 0x118FCB8
 [system.c][239]LapicSystemInit suceeded
 [smp.c][220]SMP interrupt routines successfully registered!
 [smp.c][228]Reached end of CPU list
@@ -290,7 +290,7 @@ Irq 0x8 is handled by IO APIC 0x0 which handles [0x0, 0x17]
 Irq 0x8 is handled by IO APIC 0x0 which handles [0x0, 0x17]
 [iomu.c][418]RTC Isr successfully installed!
 [iomu.c][323]_IomuSetupRtc succeeded
-[iomu.c][325]TSC frequency: 0x12005EEB8
+[iomu.c][325]TSC frequency: 0x1B13AD858
 [iomu.c][441]Initial PIT timer count is 0xBA6F
 Irq 0x2 is handled by IO APIC 0x0 which handles [0x0, 0x17]
 [WARNING][ioapic_system.c][378]Interrupt 0x2 is not registered in IO Apic 0x0
@@ -363,116 +363,116 @@ Number of PRT entries is 128
 [system.c][320]AcpiInterfaceLateInit succeeded
 [smp.c][357]Will signal APs
 [smp.c][359]APs were signaled
+[CPU:07][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180008D80
 [CPU:05][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180007A40
+[CPU:03][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180006700
 [CPU:01][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800053C0
-[CPU:02][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180005D60
+[cpumu.c][61]CR4 is 0x20
 [cpumu.c][61]CR4 is 0x20
 [CPU:04][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800070A0
-[CPU:07][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180008D80
-[cpumu.c][61]CR4 is 0x20
-[cpumu.c][61]CR4 is 0x20
-[CPU:03][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180006700
-[cpumu.c][61]CR4 is 0x20
-EFER is 0xD01
-EFER is 0xD01
-EFER is 0xD01
-[lapic_system.c][129]Apic is SW enabled
-EFER is 0xD01
-[lapic_system.c][129]Apic is SW enabled
-[CPU:03][lapic_system.c][132]LAPIC registers configured
 [CPU:06][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF8501800083E0
-[CPU:03][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[lapic_system.c][129]Apic is SW enabled
-[CPU:02][lapic_system.c][132]LAPIC registers configured
-[CPU:02][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:04][lapic_system.c][132]LAPIC registers configured
-[CPU:03][lapic_system.c][136]LAPIC timer configured
+EFER is 0xD01
+[cpumu.c][61]CR4 is 0x20
+EFER is 0xD01
+EFER is 0xD01
 [cpumu.c][61]CR4 is 0x20
 EFER is 0xD01
 [lapic_system.c][129]Apic is SW enabled
-[lapic_system.c][129]Apic is SW enabled
-[CPU:02][lapic_system.c][136]LAPIC timer configured
-[CPU:04][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:04][lapic_system.c][136]LAPIC timer configured
-[CPU:04][thread.c][210]_ThreadInit succeeded
 [cpumu.c][61]CR4 is 0x20
 EFER is 0xD01
 [lapic_system.c][129]Apic is SW enabled
 [CPU:05][lapic_system.c][132]LAPIC registers configured
-[CPU:04][smp.c][625]Number of active CPUs: 2/8
+[lapic_system.c][129]Apic is SW enabled
 [CPU:06][lapic_system.c][132]LAPIC registers configured
 [CPU:06][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
 [CPU:06][lapic_system.c][136]LAPIC timer configured
-[cpumu.c][61]CR4 is 0x20
-[CPU:03][thread.c][210]_ThreadInit succeeded
-[CPU:06][thread.c][210]_ThreadInit succeeded
-EFER is 0xD01
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
 [lapic_system.c][129]Apic is SW enabled
 [CPU:07][lapic_system.c][132]LAPIC registers configured
-[CPU:07][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:04][thread.c][257]EvtInitialize succeeded
-[CPU:02][thread.c][210]_ThreadInit succeeded
-[CPU:02][smp.c][625]Number of active CPUs: 5/8
+[CPU:04][lapic_system.c][132]LAPIC registers configured
+[CPU:04][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
 [CPU:05][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
+[CPU:05][lapic_system.c][136]LAPIC timer configured
+[CPU:05][thread.c][210]_ThreadInit succeeded
+[CPU:06][thread.c][210]_ThreadInit succeeded
+[CPU:06][smp.c][625]Number of active CPUs: 3/8
+[CPU:05][smp.c][625]Number of active CPUs: 2/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[cpumu.c][61]CR4 is 0x20
+EFER is 0xD01
+[lapic_system.c][129]Apic is SW enabled
+[lapic_system.c][129]Apic is SW enabled
 [CPU:01][lapic_system.c][132]LAPIC registers configured
 [CPU:01][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
-[CPU:01][lapic_system.c][136]LAPIC timer configured
-[CPU:01][thread.c][210]_ThreadInit succeeded
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:05][lapic_system.c][136]LAPIC timer configured
-[CPU:04][thread.c][274]ThreadCreate for IDLE thread succeeded
-[CPU:05][thread.c][210]_ThreadInit succeeded
-[CPU:05][smp.c][625]Number of active CPUs: 7/8
-[CPU:06][smp.c][625]Number of active CPUs: 4/8
-[CPU:03][smp.c][625]Number of active CPUs: 3/8
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:03][thread.c][257]EvtInitialize succeeded
-[CPU:07][lapic_system.c][136]LAPIC timer configured
-[CPU:02][thread.c][257]EvtInitialize succeeded
-[CPU:03][thread.c][274]ThreadCreate for IDLE thread succeeded
-[CPU:03][thread.c][279]About to enable interrupts
-[CPU:02][thread.c][274]ThreadCreate for IDLE thread succeeded
-[CPU:02][thread.c][279]About to enable interrupts
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:05][thread.c][257]EvtInitialize succeeded
-[CPU:04][thread.c][279]About to enable interrupts
-[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:07][thread.c][210]_ThreadInit succeeded
-[CPU:07][smp.c][625]Number of active CPUs: 8/8
-[CPU:02][thread.c][284]Interrupts enabled :)
-[CPU:04][thread.c][284]Interrupts enabled :)
-[CPU:03][thread.c][284]Interrupts enabled :)
-[CPU:07][smp.c][629]All CPUs woke up, will signal BSP
-[CPU:01][smp.c][625]Number of active CPUs: 6/8
-[CPU:05][thread.c][274]ThreadCreate for IDLE thread succeeded
 [CPU:06][thread.c][257]EvtInitialize succeeded
-[CPU:05][thread.c][279]About to enable interrupts
+[CPU:03][lapic_system.c][132]LAPIC registers configured
+[CPU:03][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
 [CPU:06][thread.c][274]ThreadCreate for IDLE thread succeeded
 [mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
-[CPU:07][thread.c][257]EvtInitialize succeeded
+[CPU:05][thread.c][257]EvtInitialize succeeded
 [CPU:06][thread.c][279]About to enable interrupts
+[CPU:06][thread.c][284]Interrupts enabled :)
+[CPU:02][ap_tramp.c][264]Hello C!, CPU at: 0xFFFF850180005D60
+[CPU:03][lapic_system.c][136]LAPIC timer configured
+[CPU:04][lapic_system.c][136]LAPIC timer configured
+[CPU:04][thread.c][210]_ThreadInit succeeded
+[CPU:05][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:05][thread.c][279]About to enable interrupts
+[CPU:05][thread.c][284]Interrupts enabled :)
+[CPU:04][smp.c][625]Number of active CPUs: 4/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:01][lapic_system.c][136]LAPIC timer configured
+[cpumu.c][61]CR4 is 0x20
+[CPU:01][thread.c][210]_ThreadInit succeeded
+[CPU:01][smp.c][625]Number of active CPUs: 5/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:01][thread.c][257]EvtInitialize succeeded
+[CPU:03][thread.c][210]_ThreadInit succeeded
+[CPU:03][smp.c][625]Number of active CPUs: 6/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:04][thread.c][257]EvtInitialize succeeded
+[CPU:03][thread.c][257]EvtInitialize succeeded
+[CPU:04][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:04][thread.c][279]About to enable interrupts
+[CPU:04][thread.c][284]Interrupts enabled :)
+[CPU:07][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
+[CPU:01][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:01][thread.c][279]About to enable interrupts
+[CPU:01][thread.c][284]Interrupts enabled :)
+EFER is 0xD01
+[CPU:03][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:03][thread.c][279]About to enable interrupts
+[CPU:03][thread.c][284]Interrupts enabled :)
+[CPU:07][lapic_system.c][136]LAPIC timer configured
+[lapic_system.c][129]Apic is SW enabled
+[CPU:07][thread.c][210]_ThreadInit succeeded
+[CPU:07][smp.c][625]Number of active CPUs: 7/8
+[mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:07][thread.c][257]EvtInitialize succeeded
+[CPU:02][lapic_system.c][132]LAPIC registers configured
+[CPU:02][lapic_system.c][134]Will configure timer using interrupt vector 0xD0
+[CPU:02][lapic_system.c][136]LAPIC timer configured
 [CPU:07][thread.c][274]ThreadCreate for IDLE thread succeeded
 [CPU:07][thread.c][279]About to enable interrupts
 [CPU:07][thread.c][284]Interrupts enabled :)
-[CPU:06][thread.c][284]Interrupts enabled :)
-[CPU:05][thread.c][284]Interrupts enabled :)
-[smp.c][364]Aps have waken UP
+[CPU:02][thread.c][210]_ThreadInit succeeded
+[CPU:02][smp.c][625]Number of active CPUs: 8/8
+[CPU:02][smp.c][629]All CPUs woke up, will signal BSP
 [mmu.c][1160]This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!
+[CPU:02][thread.c][257]EvtInitialize succeeded
+[CPU:02][thread.c][274]ThreadCreate for IDLE thread succeeded
+[CPU:02][thread.c][279]About to enable interrupts
+[CPU:02][thread.c][284]Interrupts enabled :)
+[smp.c][364]Aps have waken UP
 [system.c][323]SmpWakeupAps completed
-[CPU:01][thread.c][257]EvtInitialize succeeded
 [iomu.c][361]CPU interrupt time 5000/40000 us
-[CPU:01][thread.c][274]ThreadCreate for IDLE thread succeeded
 [ioapic_system.c][684]Reached end of PRT list
-[CPU:01][thread.c][279]About to enable interrupts
 [ioapic_system.c][684]Reached end of PRT list
-[CPU:01][thread.c][284]Interrupts enabled :)
 [ioapic_system.c][204]PRT entries retrieved successfully
 [iomu.c][369]IoApicLateSystemInit succeeded
 [system.c][332]IomuInitSystemAfterApWakeup succeeded
 [system.c][337]SmpCleanupLowerMemory completed
 [system.c][342]MmuDiscardIdentityMappings completed
-Thread [ID=128] este al 1-lea fir creat de firul [ID=0] pe CPU [ID=7]
+Thread [ID=128] este al 1-lea fir creat de firul [ID=0] pe CPU [ID=2]
 [system.c][351]MmuInitThreadingSystem succeded
 [ata.c][49]Found 1 IDE devices
 Irq 0xE is handled by IO APIC 0x0 which handles [0x0, 0x17]
@@ -530,11 +530,11 @@ Name: ata.sys
 Dispatch functions:
 DispatchFunction[0] = 0x0
 DispatchFunction[1] = 0x0
-DispatchFunction[2] = 0xFFFF800001088A10
-DispatchFunction[3] = 0xFFFF800001088A10
+DispatchFunction[2] = 0xFFFF800001088A30
+DispatchFunction[3] = 0xFFFF800001088A30
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
-DispatchFunction[6] = 0xFFFF800001089230
+DispatchFunction[6] = 0xFFFF800001089250
 Device number: 1
 Device list:
 Device at 0xFFFF8501800C54E0
@@ -549,11 +549,11 @@ Name: disk.sys
 Dispatch functions:
 DispatchFunction[0] = 0x0
 DispatchFunction[1] = 0x0
-DispatchFunction[2] = 0xFFFF800001086CA0
-DispatchFunction[3] = 0xFFFF800001086CA0
+DispatchFunction[2] = 0xFFFF800001086CC0
+DispatchFunction[3] = 0xFFFF800001086CC0
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
-DispatchFunction[6] = 0xFFFF800001087000
+DispatchFunction[6] = 0xFFFF800001087020
 Device number: 1
 Device list:
 Device at 0xFFFF8501800C5870
@@ -568,11 +568,11 @@ Name: vol.sys
 Dispatch functions:
 DispatchFunction[0] = 0x0
 DispatchFunction[1] = 0x0
-DispatchFunction[2] = 0xFFFF800001087CC0
-DispatchFunction[3] = 0xFFFF800001087CC0
+DispatchFunction[2] = 0xFFFF800001087CE0
+DispatchFunction[3] = 0xFFFF800001087CE0
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
-DispatchFunction[6] = 0xFFFF800001088180
+DispatchFunction[6] = 0xFFFF8000010881A0
 Device number: 3
 Device list:
 Device at 0xFFFF8501800C5D00
@@ -597,12 +597,12 @@ Attached to device: 0xFFFF8501800C5870
 Driver at 0xFFFF8501800C61B0
 Name: fat.sys
 Dispatch functions:
-DispatchFunction[0] = 0xFFFF800001075A00
-DispatchFunction[1] = 0xFFFF800001076070
-DispatchFunction[2] = 0xFFFF8000010763C0
-DispatchFunction[3] = 0xFFFF8000010763C0
-DispatchFunction[4] = 0xFFFF800001076A40
-DispatchFunction[5] = 0xFFFF800001076E10
+DispatchFunction[0] = 0xFFFF800001075A20
+DispatchFunction[1] = 0xFFFF800001076090
+DispatchFunction[2] = 0xFFFF8000010763E0
+DispatchFunction[3] = 0xFFFF8000010763E0
+DispatchFunction[4] = 0xFFFF800001076A60
+DispatchFunction[5] = 0xFFFF800001076E30
 DispatchFunction[6] = 0x0
 Device number: 2
 Device list:
@@ -622,10 +622,10 @@ Attached to device: 0xFFFF8501800C5E90
 Driver at 0xFFFF8501800C6720
 Name: swapfs.sys
 Dispatch functions:
-DispatchFunction[0] = 0xFFFF8000010811D0
-DispatchFunction[1] = 0xFFFF800001081550
-DispatchFunction[2] = 0xFFFF800001081740
-DispatchFunction[3] = 0xFFFF800001081B50
+DispatchFunction[0] = 0xFFFF8000010811F0
+DispatchFunction[1] = 0xFFFF800001081570
+DispatchFunction[2] = 0xFFFF800001081760
+DispatchFunction[3] = 0xFFFF800001081B70
 DispatchFunction[4] = 0x0
 DispatchFunction[5] = 0x0
 DispatchFunction[6] = 0x0
@@ -648,4 +648,13 @@ Current line is [/vol] of length 0x4
 C:\   |   FAT-LBA(0x0C)|      YES|      YES|           18600|         3FF0000|
 D:\   |   FAT-LBA(0x0C)|      YES|       NO|         4008800|         8000000|
 E:\   | LINUX-SWP(0x82)|      YES|       NO|         C008A00|         8000000|
+Thread [ID=136] este al 2-lea fir creat de firul [ID=0] pe CPU [ID=0]
+[LightProjectApp.exe] Successfully validated the interface![LightProjectApp.exe] 
+--- LightProjectApp: TESTARE MEMORIE VIRTUALA ---
+[LightProjectApp.exe] Allocate 12288 bytes, covered by 3 pages
+[LightProjectApp.exe] AllocatedPhysAddr = 1C3000 for AllocatedVirtAddr = 41009000[LightProjectApp.exe] PageFaultNo = 5 for VirtAddr = 41009000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41009000[LightProjectApp.exe] AllocatedPhysAddr = 1E8000 for AllocatedVirtAddr = 4100A000[LightProjectApp.exe] PageFaultNo = 5 for VirtAddr = 4100A000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4100A000[LightProjectApp.exe] AllocatedPhysAddr = 20D000 for AllocatedVirtAddr = 4100B000[LightProjectApp.exe] PageFaultNo = 5 for VirtAddr = 4100B000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4100B000[LightProjectApp.exe] Error: AllocatedVirtAddr = 41009000 still mapped on AllocatedPhysAddr = 41009000 after being released[LightProjectApp.exe] AllocatedPhysAddr = 28E000 for AllocatedVirtAddr = 4100C000[LightProjectApp.exe] PageFaultNo = 6 for VirtAddr = 4100C000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4100C000[LightProjectApp.exe] AllocatedPhysAddr = 28F000 for AllocatedVirtAddr = 4100D000[LightProjectApp.exe] PageFaultNo = 6 for VirtAddr = 4100D000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4100D000[LightProjectApp.exe] AllocatedPhysAddr = 290000 for AllocatedVirtAddr = 4100E000[LightProjectApp.exe] PageFaultNo = 6 for VirtAddr = 4100E000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4100E000[LightProjectApp.exe] AllocatedPhysAddr = 291000 for AllocatedVirtAddr = 4100F000[LightProjectApp.exe] PageFaultNo = 6 for VirtAddr = 4100F000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4100F000[LightProjectApp.exe] Error: AllocatedVirtAddr = 4100C000 still mapped on AllocatedPhysAddr = 4100C000 after being released[LightProjectApp.exe] Allocate 14336 bytes, covered by 4 pages
+[LightProjectApp.exe] AllocatedPhysAddr = 1C3000 for AllocatedVirtAddr = 41010000[LightProjectApp.exe] PageFaultNo = 11 for VirtAddr = 41010000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41010000[LightProjectApp.exe] AllocatedPhysAddr = 1E8000 for AllocatedVirtAddr = 41011000[LightProjectApp.exe] PageFaultNo = 11 for VirtAddr = 41011000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41011000[LightProjectApp.exe] AllocatedPhysAddr = 20D000 for AllocatedVirtAddr = 41012000[LightProjectApp.exe] PageFaultNo = 11 for VirtAddr = 41012000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41012000[LightProjectApp.exe] AllocatedPhysAddr = 28E000 for AllocatedVirtAddr = 41013000[LightProjectApp.exe] PageFaultNo = 11 for VirtAddr = 41013000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41013000[LightProjectApp.exe] Error: AllocatedVirtAddr = 41010000 still mapped on AllocatedPhysAddr = 41010000 after being released[LightProjectApp.exe] AllocatedPhysAddr = 28E000 for AllocatedVirtAddr = 41014000[LightProjectApp.exe] PageFaultNo = 12 for VirtAddr = 41014000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41014000[LightProjectApp.exe] AllocatedPhysAddr = 28F000 for AllocatedVirtAddr = 41015000[LightProjectApp.exe] PageFaultNo = 12 for VirtAddr = 41015000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41015000[LightProjectApp.exe] AllocatedPhysAddr = 290000 for AllocatedVirtAddr = 41016000[LightProjectApp.exe] PageFaultNo = 12 for VirtAddr = 41016000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41016000[LightProjectApp.exe] AllocatedPhysAddr = 291000 for AllocatedVirtAddr = 41017000[LightProjectApp.exe] PageFaultNo = 12 for VirtAddr = 41017000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41017000[LightProjectApp.exe] Error: AllocatedVirtAddr = 41014000 still mapped on AllocatedPhysAddr = 41014000 after being released[LightProjectApp.exe] Allocate 16384 bytes, covered by 4 pages
+[LightProjectApp.exe] AllocatedPhysAddr = 1C3000 for AllocatedVirtAddr = 41018000[LightProjectApp.exe] PageFaultNo = 17 for VirtAddr = 41018000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41018000[LightProjectApp.exe] AllocatedPhysAddr = 1E8000 for AllocatedVirtAddr = 41019000[LightProjectApp.exe] PageFaultNo = 17 for VirtAddr = 41019000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 41019000[LightProjectApp.exe] AllocatedPhysAddr = 20D000 for AllocatedVirtAddr = 4101A000[LightProjectApp.exe] PageFaultNo = 17 for VirtAddr = 4101A000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4101A000[LightProjectApp.exe] AllocatedPhysAddr = 28E000 for AllocatedVirtAddr = 4101B000[LightProjectApp.exe] PageFaultNo = 17 for VirtAddr = 4101B000[LightProjectApp.exe] InternalFrag = 4096 for VirtAddr = 4101B000[LightProjectApp.exe] Error: AllocatedVirtAddr = 41018000 still mapped on AllocatedPhysAddr = 41018000 after being released[LightProjectApp.exe] Returned from main function, will call ThreadExit with status 0x0!Thread [ID=136] creat pe CPU [ID=0] se termina pe CPU [ID=1], parintele [ID=0] mai are 1 copii
+Firului de executie [ID=136] i-au fost alocate 1 cuante pana la finalizare
 [core.c][154]System is IDLE!
+[core.c][169]System is no longer IDLE after 61.880 sec!

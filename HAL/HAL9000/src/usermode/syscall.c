@@ -613,7 +613,6 @@ SyscallThreadGetTid(
     *ThreadId = ThreadGetId(pThread);
     return STATUS_SUCCESS;
 }
-
 STATUS
 SyscallVirtualAlloc(
     IN_OPT      PVOID                   BaseAddress,
@@ -651,15 +650,15 @@ SyscallVirtualAlloc(
 
     // Use VmmAllocRegionEx to allocate memory
     *AllocatedAddress = VmmAllocRegionEx(
-        NULL,                   // Let kernel decide address
+        NULL,
         Size,
         AllocType,
         PageRights,
-        FALSE,                  // Not uncachable
-        NULL,                   // No file backing
-        pProcess->VaSpace,      // Process VA space
-        NULL,                   // No MDL
-        NULL                    // No name
+        FALSE,
+        NULL,
+        pProcess->VaSpace,
+        pProcess->PagingData,
+        NULL
     );
 
     if (*AllocatedAddress == NULL)
@@ -679,12 +678,15 @@ SyscallVirtualFree(
     IN          VMM_FREE_TYPE           FreeType
 )
 {
+    PPROCESS pProcess;
+
     if (Address == NULL)
     {
         return STATUS_INVALID_PARAMETER1;
     }
 
-    VmmFreeRegionEx(Address, Size, FreeType, TRUE, NULL, NULL);
+    pProcess = GetCurrentProcess();
+    VmmFreeRegionEx(Address, Size, FreeType, TRUE, pProcess->VaSpace, pProcess->PagingData);
     return STATUS_SUCCESS;
 }
 

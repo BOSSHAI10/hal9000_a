@@ -370,6 +370,10 @@
                 {
                     "source": "artifacts/apps/VirtualSharedNormal/VirtualSharedNormal.exe",
                     "destination": "/Applications/VirtualSharedNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/LightProjectApp/LightProjectApp.exe",
+                    "destination": "/Applications/LightProjectApp.exe"
                 }
             ]
         }
