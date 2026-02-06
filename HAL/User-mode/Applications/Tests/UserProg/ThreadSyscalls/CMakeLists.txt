@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.28.3 FATAL_ERROR)
+
+add_subdirectory(ThreadCloseTwice)
+add_subdirectory(ThreadCreateBadPointer)
+add_subdirectory(ThreadCreateMultiple)
+add_subdirectory(ThreadCreateOnce)
+add_subdirectory(ThreadCreateWithArguments)
+add_subdirectory(ThreadExit)
+add_subdirectory(ThreadGetTid)
+add_subdirectory(ThreadWaitBadHandle)
+add_subdirectory(ThreadWaitClosedHandle)
+add_subdirectory(ThreadWaitNormal)
+add_subdirectory(ThreadWaitTerminated)

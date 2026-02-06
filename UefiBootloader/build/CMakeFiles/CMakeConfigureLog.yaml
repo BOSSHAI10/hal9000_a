@@ -1,0 +1,76 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:228 (message)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      The target system is: Generic -  - x86_64
+      The host system is: Linux - 6.14.0-37-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/clang 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/3.28.3/CompilerIdC/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/CMakeScratch/TryCompile-cJu6oW"
+      binary: "/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/CMakeScratch/TryCompile-cJu6oW"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/CMakeScratch/TryCompile-cJu6oW'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_fc3e1
+        [1/2] /usr/bin/clang   --target=x86_64-unknown-windows -v -MD -MT CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj.d -c -o CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Ubuntu clang version 18.1.3 (1ubuntu1)
+        Target: x86_64-unknown-windows-msvc
+        Thread model: posix
+        InstalledDir: /usr/bin
+         (in-process)
+         "/usr/lib/llvm-18/bin/clang" -cc1 -triple x86_64-unknown-windows-msvc19.33.0 -emit-obj -mrelax-all -mincremental-linker-compatible -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -fdebug-compilation-dir=/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/CMakeScratch/TryCompile-cJu6oW -v -fcoverage-compilation-dir=/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/CMakeScratch/TryCompile-cJu6oW -resource-dir /usr/lib/llvm-18/lib/clang/18 -dependency-file CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem /usr/lib/llvm-18/lib/clang/18/include -ferror-limit 19 -fno-use-cxa-atexit -fms-extensions -fms-compatibility -fms-compatibility-version=19.33 -fskip-odr-check-in-gmf -fdelayed-template-parsing -faddrsig -o CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj -x c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 18.1.3 based upon LLVM 18.1.3 default target x86_64-pc-linux-gnu
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/llvm-18/lib/clang/18/include
+        End of search list.
+        [2/2] : && /usr/bin/lld-link -v /OUT:cmTC_fc3e1 CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj   && :
+        FAILED: cmTC_fc3e1 
+        : && /usr/bin/lld-link -v /OUT:cmTC_fc3e1 CMakeFiles/cmTC_fc3e1.dir/CMakeCCompilerABI.c.obj   && :
+        lld-link: warning: ignoring unknown argument '-v'
+        lld-link: error: <root>: undefined symbol: mainCRTStartup
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...

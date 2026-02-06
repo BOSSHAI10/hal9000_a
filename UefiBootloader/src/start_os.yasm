@@ -1,0 +1,122 @@
+%define CODE_SEGMENT 0x08
+%define DATA_SEGMENT 0x10
+%define HAL_BOOT_MAGIC 0xC00010FF
+
+global __start_os
+global __start_os_bits32
+global __start_os_pm
+
+SECTION .text
+
+struc _TRANSITION
+    .JumpAddress : resq 1
+    .JumpAddressPm : resd 1
+    .GdtDescriptor : resq 1
+    .GdtDescriptor64 : resq 1
+endstruc
+
+; %rcx EntryAddress
+; %rdx BootInfo
+; %r8 Transition
+__start_os:
+[bits 64]
+    ; We will fall back to PM, no paging
+    ; then, jump to OS
+
+    ; Disable Interrupts
+    cli
+    
+    ; Save EntryAddress
+    mov rax, rcx
+    mov [rsp], eax
+    sub rsp, 4
+
+    ; Save BootInfo
+    mov rax, rdx
+    mov [rsp], eax
+    sub rsp, 4
+
+    mov rax, CODE_SEGMENT
+    mov [rsp], eax
+    sub rsp, 4
+    
+    mov rax, [r8 + _TRANSITION.JumpAddressPm]
+    mov [rsp], eax
+    sub rsp, 4
+
+    ; Save GdtDescriptor
+    mov rax, [r8 + _TRANSITION.GdtDescriptor]
+    mov [rsp], eax
+    sub rsp, 8
+
+    ;Push CodeSegmentSelector
+    mov rax, CODE_SEGMENT
+    mov [rsp], rax
+    sub rsp, 8
+
+    ; Save JumpAddress
+    mov rax, [r8 + _TRANSITION.JumpAddress]
+    mov [rsp], rax
+
+    mov rax, [r8 + _TRANSITION.GdtDescriptor64]
+    lgdt [rax]
+
+    ; Switch to compatibility mode
+    retfq
+__start_os_bits32:
+[bits 32]
+
+    ; Reload Data Selectors
+    mov ax, DATA_SEGMENT
+    mov ds, ax
+    mov es, ax
+    mov ss, ax
+    mov fs, ax
+    mov gs, ax
+
+    ; Disable paging
+    mov eax, cr0
+    mov ebx, ~(1 << 31)
+    and eax, ebx
+    mov cr0, eax
+
+    ; We are in PM no paging
+
+    ; Disable IA32_EFER.LME
+    mov ecx, 0xC0000080
+    rdmsr
+    mov ebx, ~(1 << 8)
+    and eax, ebx
+    wrmsr
+
+    ; Reload GDT
+    mov eax, [esp]
+    add esp, 4
+    lgdt [eax]
+
+    ; Reload CS
+    retf 
+__start_os_pm:
+    
+    ; Reload Data Selectors
+    mov ax, DATA_SEGMENT
+    mov ds, ax
+    mov es, ax
+    mov ss, ax
+    mov fs, ax
+    mov gs, ax
+    
+    ; Load magic
+    mov eax, HAL_BOOT_MAGIC 
+
+    ; Load BootInfo
+    mov ebx, [esp]
+    add esp, 4
+
+    ; Load EntryAddress
+    mov ecx, [esp]
+
+    ; Jump to OS
+    jmp ecx
+
+    hlt

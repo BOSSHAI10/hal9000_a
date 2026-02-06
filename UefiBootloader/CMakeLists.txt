@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.28.3 FATAL_ERROR)
+
+MESSAGE(STATUS "Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
+
+project(UefiBootloader LANGUAGES C)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../cmake/yasm")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../cmake")
+enable_language(YASM)
+
+include(Flags)
+
+file(GLOB_RECURSE UEFI_APP_SOURCES ${CMAKE_CURRENT_LIST_DIR}/src/*.c ${CMAKE_CURRENT_LIST_DIR}/src/*.yasm)
+set(UEFI_APP_INCLUDES ${CMAKE_SOURCE_DIR}/../HAL/CompilerAbstraction/inc ${CMAKE_CURRENT_LIST_DIR}/include ${CMAKE_CURRENT_LIST_DIR}/include/Uefi)
+
+add_executable(BOOTX64.EFI ${UEFI_APP_SOURCES})
+target_include_directories(BOOTX64.EFI PRIVATE ${UEFI_APP_INCLUDES})
+target_compile_options(BOOTX64.EFI PRIVATE ${UEFI_APP_COMPILE_FLAGS})
+target_link_options(BOOTX64.EFI PRIVATE ${UEFI_APP_LINK_FLAGS})
+
+install(TARGETS BOOTX64.EFI DESTINATION bin)

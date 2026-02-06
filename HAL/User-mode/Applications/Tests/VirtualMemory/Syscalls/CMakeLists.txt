@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.28.3 FATAL_ERROR)
+
+add_subdirectory(VirtualAllocAccessFail)
+add_subdirectory(VirtualAllocHugeEager)
+add_subdirectory(VirtualAllocHugeLazy)
+add_subdirectory(VirtualAllocNormal)
+add_subdirectory(VirtualAllocWriteExec)
+add_subdirectory(VirtualAllocZeros)
+add_subdirectory(VirtualFreeInvalid)
+add_subdirectory(VirtualFreeMore)
+add_subdirectory(VirtualSharedNormal)

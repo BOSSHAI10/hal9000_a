@@ -1,0 +1,7 @@
+global __CALreadfsqword
+
+align 0x10, db 0
+[bits 64]
+__CALreadfsqword:
+    mov rax, [fs:ecx]
+    ret

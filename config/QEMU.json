@@ -1,0 +1,19 @@
+{
+    "cpu": "max",
+    "machine": "q35",
+    "L": "tools/OVMF",
+    "bios": "OVMF.fd",
+    "m": "4G",
+    "smp": 8,
+    "chardev": "file,id=char0,path=HAL9000.log",
+    "serial": "chardev:char0",
+    "device": [
+        "e1000e",
+        "piix3-ide,id=idebus",
+        "ide-hd,drive=disk0,bus=idebus.0"
+    ],
+    "drive": [
+        "id=disk0,file=artifacts/bin/HAL9000.img,format=raw,if=none"
+    ],
+    "monitor": "stdio"
+}

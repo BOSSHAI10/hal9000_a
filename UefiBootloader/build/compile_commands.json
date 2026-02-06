@@ -1,0 +1,74 @@
+[
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/acpi.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/acpi.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/acpi.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/acpi.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/console.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/console.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/console.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/console.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/crc32.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/crc32.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/crc32.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/crc32.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/efi_entry.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/efi_entry.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/efi_entry.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/efi_entry.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/filesystem.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/filesystem.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/filesystem.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/filesystem.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/graphics.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/graphics.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/graphics.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/graphics.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/loader.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/loader.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/loader.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/loader.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/memory.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/memory.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/memory.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/memory.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/memory_map.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/memory_map.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/memory_map.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/memory_map.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/paging.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/paging.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/paging.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/paging.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/clang -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi --target=x86_64-unknown-windows -g -Werror -nostdinc -ffreestanding -nostdlib -fshort-wchar -c -o CMakeFiles/BOOTX64.EFI.dir/src/runtime.c.obj /home/alexandrusb/hal9000/UefiBootloader/src/runtime.c",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/runtime.c",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/runtime.c.obj"
+},
+{
+  "directory": "/home/alexandrusb/hal9000/UefiBootloader/build",
+  "command": "/usr/bin/nasm -I/home/alexandrusb/hal9000/UefiBootloader/../HAL/CompilerAbstraction/inc -I/home/alexandrusb/hal9000/UefiBootloader/include -I/home/alexandrusb/hal9000/UefiBootloader/include/Uefi -f win64 -w-label-orphan -w-number-overflow -o CMakeFiles/BOOTX64.EFI.dir/src/start_os.yasm.obj /home/alexandrusb/hal9000/UefiBootloader/src/start_os.yasm",
+  "file": "/home/alexandrusb/hal9000/UefiBootloader/src/start_os.yasm",
+  "output": "CMakeFiles/BOOTX64.EFI.dir/src/start_os.yasm.obj"
+}
+]

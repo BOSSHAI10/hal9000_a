@@ -1,0 +1,7 @@
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/BOOTX64.EFI.dir
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/edit_cache.dir
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/rebuild_cache.dir
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/list_install_components.dir
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/install.dir
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/install/local.dir
+/home/alexandrusb/hal9000/UefiBootloader/build/CMakeFiles/install/strip.dir

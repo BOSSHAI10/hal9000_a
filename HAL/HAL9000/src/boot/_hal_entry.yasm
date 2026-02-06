@@ -1,0 +1,238 @@
+%include "lib.yasm"
+
+;; IMPORTS
+extern HalActivateFpu
+extern Entry64
+
+extern PM32_to_PM64
+extern PM64_to_PM32
+extern LowGdtBase
+
+;; EXPORTS
+global __HalEntry
+
+%define GDT_DESCRIPTOR_ADDRESS                      ( GDT_BASE_ADDRESS + __gdt_base.end - __gdt_base )
+
+; Our header must be contained completely within the first 8192 bytes of the OS image
+SECTION .halboot
+;;
+;; KERNEL_BASE + 0x400 (this must be the first stuff to be linked into the code segment)
+;;
+hal_boot_header:
+Magic                    dd HAL_HEADER_MAGIC                                   
+Crc                      dd HAL_HEADER_CRC32                                  
+LoadOffset               dd 0 
+PreferredLoadAddress     dd KERNEL_BASE
+EntryAddress             dd HAL_ENTRY_POINT
+FrameBufferWidth         dd HAL_FRAMEBUFFER_WIDTH
+FrameBufferHeight        dd HAL_FRAMEBUFFER_HEIGHT
+
+gHalBootInformation times 1 dq 0
+
+;; pad until 0x100
+times (HAL_BOOT_SECTION_SIZE - HAL_BOOT_HEADER_SIZE - 8) db 'A'
+
+;;
+;; KERNEL_BASE + 0x500
+;;
+__gdt_base:                                             ; GDT with 1+6+2 entries
+.null               dq      0
+.data64             dq      GDT_DESC_DATA64                 ; Data segment
+.code64             dq      GDT_DESC_CODE64                 ; Code segment, 64 bit, execute / read, present
+.data32             dq      GDT_DESC_DATA32
+.code32             dq      GDT_DESC_CODE32
+.data16             dq      GDT_DESC_DATA16
+.code16             dq      GDT_DESC_CODE16
+.end
+
+; size and address of __gdt_base
+__gdtr:
+.gdt_size        dw  ( __gdt_base.end - __gdt_base - 1 )
+.gdt_address     dq  GDT_BASE_ADDRESS
+.end
+
+times ( GDT_SECTION_SIZE - ( __gdtr.end - __gdt_base) ) db 'G'
+
+;;
+;; KERNEL_BASE + 0x700
+;;
+times 0x1900 db 'S'
+
+;;
+;; KERNEL_BASE + 0x2000
+;; PML4
+__pml4_table:
+dq              PDP_TABLE_BASE | P_BIT | RW_BIT   ; entry for 0 - 512G, PDP
+times KERNEL_PML4_INDEX - 1 dq 0
+dq              PDP_TABLE_BASE | P_BIT | RW_BIT   ; entry for 1T - 1,5T, PDP
+; 1.5T - 2T
+dq 0
+; 2T - 2.5T
+dq 0
+; 2.5T - 3T
+dq 0
+; 3T - 3.5T
+dq 0
+; 3.5T - 4T
+dq 0
+; 4T - 4.5T
+dq 0
+; 4.5T - 5T
+dq 0
+; 5T - 5.5T
+dq 0
+; 5.5 - 6T
+dq 0
+; 6T - 6.5T
+dq              PDP_DISPLAY_TABLE_BASE | P_BIT | RW_BIT ; entry for display, PDP 
+times PTE_PER_TABLE - KERNEL_PML4_INDEX - 11 dq 0
+
+;; KERNEL_BASE + 0x3000
+;; PDPT
+; Map first 4GB, so that we have access to anything given to us by the loader
+__pdp_table_1t:
+dq              PD_TABLE_LOW_1GB_BASE | P_BIT | RW_BIT ; map 0 - 1GB without first page
+dq              PDP_ENTRY_LENGTH | XD_BIT | PS_BIT | P_BIT | RW_BIT ; map 1GB - 2GB
+dq              (2 * PDP_ENTRY_LENGTH) | XD_BIT | PS_BIT | P_BIT | RW_BIT ; map 2GB - 3GB
+dq              (3 * PDP_ENTRY_LENGTH) | XD_BIT | PS_BIT | P_BIT | RW_BIT ; map 3GB - 4GB
+times PTE_PER_TABLE - 4 dq 0
+
+;; KERNEL_BASE + 0x4000
+; Map 1GB of the display 
+__pdp_table_display:
+dq             XD_BIT | PS_BIT | P_BIT | RW_BIT ; map 1GB of diplay area
+times PTE_PER_TABLE - 1 dq 0
+
+;; KERNEL_BASE + 0x5000
+;; PDT
+; Map without gaps first 1GB, except first page
+__pd_table:
+dq              PT_TABLE_LOW_2MB_BASE | P_BIT | RW_BIT   ; entry for 0 - 2M, PT, using PT to avoid mapping first 4K (do NOT map NULL pointer)
+
+%assign     i   PD_ENTRY_LENGTH                          ; Map until KernelBase
+%rep KERNEL_NO_OF_PAGES_BEFORE
+dq          i | XD_BIT | PS_BIT | P_BIT | RW_BIT
+%assign     i   i + PD_ENTRY_LENGTH
+%endrep
+
+dq              KERNEL_BASE | PS_BIT | P_BIT | RW_BIT ; Map whole Kernel
+
+%assign     i   KERNEL_BASE + PD_ENTRY_LENGTH ; Map remaining part of the first 1GB
+%rep KERNEL_NO_OF_PAGES_AFTER - 1
+dq          i | XD_BIT | PS_BIT | P_BIT | RW_BIT
+%assign     i   i + PD_ENTRY_LENGTH
+%endrep
+
+;; KERNEL_BASE + 0x6000
+;; PT for first 2 MB of memory
+__pt_table_low_2mb:
+times 1     dq 0                        ; P = 0, NOT preset, to avoid NULL pointers
+                                        ; will be dynamically generated
+%assign     i   0x1000
+%rep PTE_PER_TABLE - 1
+dq          i | P_BIT | RW_BIT
+%assign     i   i + PAGE_SIZE
+%endrep
+
+;; KERNEL_BASE + 0x7000
+;;
+[bits 32]
+__HalEntry:
+    ; make sure interrupts are disabled
+    cli
+
+    ; setup initial ESP, to have stack
+    mov     esp, INITIAL_TOP_OF_STACK
+
+    push    eax
+
+    ; check if we were loaded by our custom loader
+    pop     eax
+    cmp     eax, HAL_BOOT_MAGIC
+    jz      .mb_load
+
+    ; if we get here it means we were not loaded by the MB loader
+    ; we don't know any other way of loading
+    cli
+    hlt
+
+.mb_load:
+
+    ; our loader loaded us
+    
+    ; it is best to load our own GDT
+    lgdt    [GDT_DESCRIPTOR_ADDRESS]
+
+    ; reload CS
+    jmp     GDT_DESC(__gdt_base,code32):HAL_ENTRY_POINT + ( __HalEntry.new_gdt - __HalEntry )
+.new_gdt:
+    mov     ax,         GDT_DESC(__gdt_base,data32)
+    mov     ss,         ax
+    mov     ds,         ax
+    mov     es,         ax
+    mov     fs,         ax
+    mov     gs,         ax
+
+    ; copy boot information address
+    mov     eax, HAL_INFO_ADDRESS
+    mov     [eax], ebx
+
+    ; ; we place code under 1MB
+    ; ; our trampoline
+    ; mov     esi, HAL_BOOT_BASE + ( LowGdtBase - hal_boot_header )
+    ; mov     edi, LOW_GDT_BASE_ADDRESS
+    ; mov     ecx, LOW_MEMORY_LENGTH
+    ; cld
+    ; rep     movsb
+
+    mov     esp, LOW_MEMORY_STACK_TOP
+
+    sub     esp, TRANSITION_CONFIG_size
+    mov     ecx, esp
+
+    ; Map the display far away from the kernel
+
+    ; Load display addr in EDX:ECX
+    mov     eax, HAL_INFO_ADDRESS
+    mov     eax, [eax]
+    add     eax, HAL_FRAMEBUFFER_OFFSET
+    mov     ecx, [eax]
+    add     eax, 4
+    mov     edx, [eax]
+
+    ; Map the display
+    mov     eax, PDP_DISPLAY_TABLE_BASE
+    or      [eax], ecx
+    add     eax, 4
+    or      [eax], edx
+
+    setup_transition_config_32 ecx, GDT_DESCRIPTOR_ADDRESS, INITIAL_TOP_OF_STACK, GDT_DESC(__gdt_base,code64), GDT_DESC(__gdt_base,data64), INITIAL_TOP_OF_STACK_1T & 0xFFFFFFFF, INITIAL_TOP_OF_STACK_1T >> 32, PML4_TABLE_BASE
+
+; after this function call we'll be in 64 bit mode
+    call    PM32_to_PM64
+[bits 64]
+;
+; now we are using final 1T virtual addresses, full x64, have an 8K stack in place, so are ready to jump to our C code
+;
+call_final:
+    call_func_64    HalActivateFpu
+
+    ; Get boot information address
+    mov r15, HAL_INFO_ADDRESS
+    mov r15, [r15]
+    
+    ; Put virtual info in boot structure
+    mov r8, r15
+    add r8, HAL_VIRTUAL_INFO_OFFSET
+    mov r9, PA_2_VA_DIFFERENCE
+    mov [r8], r9
+    add r8, 8
+    mov r9, VIRTUAL_DISPLAY_ADDRESS
+    mov [r8], r9
+
+    call_func_64    Entry64, QWORD 1, r15
+
+.never:
+    cli
+    hlt
+    jmp     .never

@@ -1,0 +1,377 @@
+{
+    "output": "artifacts/bin/HAL9000.img",
+    "disk": "0439d2b9-9dfd-49dd-b0b9-c8cc0db50e46",
+    "partitions": [
+        {
+            "type": "EFI",
+            "size": 65472,
+            "name": "BOOT",
+            "id": "35cf0283-b418-4ee3-86ea-e7a1d23d728e"
+        },
+        {
+            "type": "BDP",
+            "size": 131072,
+            "name": "DATA",
+            "id": "5bd299d7-fd05-4cbb-8de4-e7ce4505b32e"
+        },
+        {
+            "type": "LINUX_SWAP",
+            "size": 131072,
+            "name": "SWAP",
+            "id": "9a0f888b-11ce-401f-a304-3f47b00a8e65"
+        }
+    ],
+    "filesystems": [
+        {
+            "partition": "BOOT",
+            "directories": [
+                "/EFI",
+                "/EFI/BOOT",
+                "/EFI/OS",
+                "/EFI/MODULES"
+            ],
+            "files": [
+                {
+                    "source": "artifacts/bin/BOOTX64.EFI",
+                    "destination": "/EFI/BOOT/BOOTX64.EFI"
+                },
+                {
+                    "source": "artifacts/bin/HAL9000.bin",
+                    "destination": "/EFI/OS/HAL9000.bin"
+                },
+                {
+                    "source": "artifacts/Tests",
+                    "destination": "/EFI/MODULES/Tests"
+                }
+            ]
+        },
+        {
+            "partition": "DATA",
+            "directories": [
+                "/Applications"
+            ],
+            "files": [
+                {
+                    "source": "config/HAL9000.ini",
+                    "destination": "/HAL9000.ini"
+                },
+                {
+                    "source": "artifacts/apps/AppHelloWorld/AppHelloWorld.exe",
+                    "destination": "/Applications/AppHelloWorld.exe"
+                },
+                {
+                    "source": "artifacts/apps/Args/Args.exe",
+                    "destination": "/Applications/Args.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadJumpKernel/BadJumpKernel.exe",
+                    "destination": "/Applications/BadJumpKernel.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadJumpNoncanonical/BadJumpNoncanonical.exe",
+                    "destination": "/Applications/BadJumpNoncanonical.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadJumpNull/BadJumpNull.exe",
+                    "destination": "/Applications/BadJumpNull.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadReadIoPort/BadReadIoPort.exe",
+                    "destination": "/Applications/BadReadIoPort.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadReadKernel/BadReadKernel.exe",
+                    "destination": "/Applications/BadReadKernel.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadReadMsr/BadReadMsr.exe",
+                    "destination": "/Applications/BadReadMsr.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadReadNonCanonical/BadReadNonCanonical.exe",
+                    "destination": "/Applications/BadReadNonCanonical.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadReadNull/BadReadNull.exe",
+                    "destination": "/Applications/BadReadNull.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadWriteIoPort/BadWriteIoPort.exe",
+                    "destination": "/Applications/BadWriteIoPort.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadWriteKernel/BadWriteKernel.exe",
+                    "destination": "/Applications/BadWriteKernel.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadWriteMsr/BadWriteMsr.exe",
+                    "destination": "/Applications/BadWriteMsr.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadWriteNonCanonical/BadWriteNonCanonical.exe",
+                    "destination": "/Applications/BadWriteNonCanonical.exe"
+                },
+                {
+                    "source": "artifacts/apps/BadWriteNull/BadWriteNull.exe",
+                    "destination": "/Applications/BadWriteNull.exe"
+                },
+                {
+                    "source": "artifacts/apps/Dummy/Dummy.exe",
+                    "destination": "/Applications/Dummy.exe"
+                },
+                {
+                    "source": "artifacts/apps/DummyFail/DummyFail.exe",
+                    "destination": "/Applications/DummyFail.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCloseBad/FileCloseBad.exe",
+                    "destination": "/Applications/FileCloseBad.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCloseNormal/FileCloseNormal.exe",
+                    "destination": "/Applications/FileCloseNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCloseStdout/FileCloseStdout.exe",
+                    "destination": "/Applications/FileCloseStdout.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCloseTwice/FileCloseTwice.exe",
+                    "destination": "/Applications/FileCloseTwice.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateBadPointer/FileCreateBadPointer.exe",
+                    "destination": "/Applications/FileCreateBadPointer.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateEmptyPath/FileCreateEmptyPath.exe",
+                    "destination": "/Applications/FileCreateEmptyPath.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateExistent/FileCreateExistent.exe",
+                    "destination": "/Applications/FileCreateExistent.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateMissing/FileCreateMissing.exe",
+                    "destination": "/Applications/FileCreateMissing.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateNormal/FileCreateNormal.exe",
+                    "destination": "/Applications/FileCreateNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateNull/FileCreateNull.exe",
+                    "destination": "/Applications/FileCreateNull.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileCreateTwice/FileCreateTwice.exe",
+                    "destination": "/Applications/FileCreateTwice.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileReadBadHandle/FileReadBadHandle.exe",
+                    "destination": "/Applications/FileReadBadHandle.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileReadBadPointer/FileReadBadPointer.exe",
+                    "destination": "/Applications/FileReadBadPointer.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileReadKernel/FileReadKernel.exe",
+                    "destination": "/Applications/FileReadKernel.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileReadNormal/FileReadNormal.exe",
+                    "destination": "/Applications/FileReadNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileReadStdout/FileReadStdout.exe",
+                    "destination": "/Applications/FileReadStdout.exe"
+                },
+                {
+                    "source": "artifacts/apps/FileReadZero/FileReadZero.exe",
+                    "destination": "/Applications/FileReadZero.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCloseFile/ProcessCloseFile.exe",
+                    "destination": "/Applications/ProcessCloseFile.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCloseNormal/ProcessCloseNormal.exe",
+                    "destination": "/Applications/ProcessCloseNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCloseParentHandle/ProcessCloseParentHandle.exe",
+                    "destination": "/Applications/ProcessCloseParentHandle.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCloseTwice/ProcessCloseTwice.exe",
+                    "destination": "/Applications/ProcessCloseTwice.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCreateBadPointer/ProcessCreateBadPointer.exe",
+                    "destination": "/Applications/ProcessCreateBadPointer.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCreateMissingFile/ProcessCreateMissingFile.exe",
+                    "destination": "/Applications/ProcessCreateMissingFile.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCreateMultiple/ProcessCreateMultiple.exe",
+                    "destination": "/Applications/ProcessCreateMultiple.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCreateOnce/ProcessCreateOnce.exe",
+                    "destination": "/Applications/ProcessCreateOnce.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessCreateWithArguments/ProcessCreateWithArguments.exe",
+                    "destination": "/Applications/ProcessCreateWithArguments.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessExit/ProcessExit.exe",
+                    "destination": "/Applications/ProcessExit.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessGetPid/ProcessGetPid.exe",
+                    "destination": "/Applications/ProcessGetPid.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessQuotaGood/ProcessQuotaGood.exe",
+                    "destination": "/Applications/ProcessQuotaGood.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessQuotaJustRight/ProcessQuotaJustRight.exe",
+                    "destination": "/Applications/ProcessQuotaJustRight.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessQuotaMore/ProcessQuotaMore.exe",
+                    "destination": "/Applications/ProcessQuotaMore.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessWaitBadHandle/ProcessWaitBadHandle.exe",
+                    "destination": "/Applications/ProcessWaitBadHandle.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessWaitClosedHandle/ProcessWaitClosedHandle.exe",
+                    "destination": "/Applications/ProcessWaitClosedHandle.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessWaitNormal/ProcessWaitNormal.exe",
+                    "destination": "/Applications/ProcessWaitNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/ProcessWaitTerminated/ProcessWaitTerminated.exe",
+                    "destination": "/Applications/ProcessWaitTerminated.exe"
+                },
+                {
+                    "source": "artifacts/apps/StackGrowthRecursiveFunction/StackGrowthRecursiveFunction.exe",
+                    "destination": "/Applications/StackGrowthRecursiveFunction.exe"
+                },
+                {
+                    "source": "artifacts/apps/StackGrowthVariables/StackGrowthVariables.exe",
+                    "destination": "/Applications/StackGrowthVariables.exe"
+                },
+                {
+                    "source": "artifacts/apps/SwapLinear/SwapLinear.exe",
+                    "destination": "/Applications/SwapLinear.exe"
+                },
+                {
+                    "source": "artifacts/apps/SwapMultipleShared/SwapMultipleShared.exe",
+                    "destination": "/Applications/SwapMultipleShared.exe"
+                },
+                {
+                    "source": "artifacts/apps/SwapZeros/SwapZeros.exe",
+                    "destination": "/Applications/SwapZeros.exe"
+                },
+                {
+                    "source": "artifacts/apps/SwapZerosWritten/SwapZerosWritten.exe",
+                    "destination": "/Applications/SwapZerosWritten.exe"
+                },
+                {
+                    "source": "artifacts/apps/TestApp/TestApp.exe",
+                    "destination": "/Applications/TestApp.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadCloseTwice/ThreadCloseTwice.exe",
+                    "destination": "/Applications/ThreadCloseTwice.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadCreateBadPointer/ThreadCreateBadPointer.exe",
+                    "destination": "/Applications/ThreadCreateBadPointer.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadCreateMultiple/ThreadCreateMultiple.exe",
+                    "destination": "/Applications/ThreadCreateMultiple.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadCreateOnce/ThreadCreateOnce.exe",
+                    "destination": "/Applications/ThreadCreateOnce.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadCreateWithArguments/ThreadCreateWithArguments.exe",
+                    "destination": "/Applications/ThreadCreateWithArguments.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadExit/ThreadExit.exe",
+                    "destination": "/Applications/ThreadExit.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadGetTid/ThreadGetTid.exe",
+                    "destination": "/Applications/ThreadGetTid.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadWaitBadHandle/ThreadWaitBadHandle.exe",
+                    "destination": "/Applications/ThreadWaitBadHandle.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadWaitClosedHandle/ThreadWaitClosedHandle.exe",
+                    "destination": "/Applications/ThreadWaitClosedHandle.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadWaitNormal/ThreadWaitNormal.exe",
+                    "destination": "/Applications/ThreadWaitNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/ThreadWaitTerminated/ThreadWaitTerminated.exe",
+                    "destination": "/Applications/ThreadWaitTerminated.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualAllocAccessFail/VirtualAllocAccessFail.exe",
+                    "destination": "/Applications/VirtualAllocAccessFail.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualAllocHugeEager/VirtualAllocHugeEager.exe",
+                    "destination": "/Applications/VirtualAllocHugeEager.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualAllocHugeLazy/VirtualAllocHugeLazy.exe",
+                    "destination": "/Applications/VirtualAllocHugeLazy.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualAllocNormal/VirtualAllocNormal.exe",
+                    "destination": "/Applications/VirtualAllocNormal.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualAllocWriteExec/VirtualAllocWriteExec.exe",
+                    "destination": "/Applications/VirtualAllocWriteExec.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualAllocZeros/VirtualAllocZeros.exe",
+                    "destination": "/Applications/VirtualAllocZeros.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualFreeInvalid/VirtualFreeInvalid.exe",
+                    "destination": "/Applications/VirtualFreeInvalid.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualFreeMore/VirtualFreeMore.exe",
+                    "destination": "/Applications/VirtualFreeMore.exe"
+                },
+                {
+                    "source": "artifacts/apps/VirtualSharedNormal/VirtualSharedNormal.exe",
+                    "destination": "/Applications/VirtualSharedNormal.exe"
+                }
+            ]
+        }
+    ]
+}

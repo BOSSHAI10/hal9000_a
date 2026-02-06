@@ -1,0 +1,583 @@
+{
+    "config": {
+        "params": {
+            "thread_count": 16
+        },
+        "types": [
+            {
+                "name": "simple",
+                "command": "/run @@TEST@@ @@thread_count@@"
+            },
+            {
+                "name": "process",
+                "command": "/proctest @@TEST@@"
+            }
+        ],
+        "module_header": [
+            "/log ON",
+            "/loglevel 0",
+            "/logcomp 8000"
+        ],
+        "module_trailer": [
+            "/shutdown"
+        ],
+        "timeout": 180
+    },
+    "modules": {
+        "Threads": {
+            "PriorityDonation": [
+                {
+                    "name": "TestThreadPriorityDonationChain",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationLower",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationMulti",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationMultiInverted",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationMultiThreads",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationMultiThreadsInverted",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationNest",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadPriorityDonationOnce",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                }
+            ],
+            "PriorityScheduler": [
+                {
+                    "name": "TestThreadPriorityMutex",
+                    "type": "simple",
+                    "evaluator": "ThreadDecreasingPriority"
+                },
+                {
+                    "name": "TestThreadPriorityRoundRobin",
+                    "type": "simple",
+                    "evaluator": "ThreadRoundRobin"
+                },
+                {
+                    "name": "TestThreadPriorityWakeup",
+                    "type": "simple",
+                    "evaluator": "ThreadDecreasingPriority"
+                },
+                {
+                    "name": "TestThreadPriorityYield",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                }
+            ],
+            "Timer": [
+                {
+                    "name": "TestThreadTimerAbsolute",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerAbsolutePassed",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerMultipleThreads",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerMultipleTimers",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerPeriodicMultiple",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerPeriodicOnce",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerPeriodicZero",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerRelative",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "TestThreadTimerRelativeZero",
+                    "type": "simple",
+                    "evaluator": "Pass"
+                }
+            ]
+        },
+        "UserProg": {
+            "Arguments": [
+                {
+                    "name": "TestUserArgsAll",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "TestUserArgsMany",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "TestUserArgsNone",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "TestUserArgsOne",
+                    "type": "process",
+                    "evaluator": "Compare"
+                }
+            ],
+            "BadActions": [
+                {
+                    "name": "BadJumpKernel",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadJumpNoncanonical",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadJumpNull",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadReadIoPort",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadReadKernel",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadReadMsr",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadReadNoncanonical",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadReadNull",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadWriteIoPort",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadWriteKernel",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadWriteMsr",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadWriteNoncanonical",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "BadWriteNull",
+                    "type": "process",
+                    "evaluator": "Compare"
+                }
+            ],
+            "FileSyscalls": [
+                {
+                    "name": "FileCloseBad",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCloseNormal",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCloseStdout",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCloseTwice",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateBadPointer",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateEmptyPath",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateExistent",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateMissing",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateNormal",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateNull",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileCreateTwice",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileReadBadHandle",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileReadBadPointer",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileReadKernel",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileReadNormal",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileReadStdout",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "FileReadZero",
+                    "type": "process",
+                    "evaluator": "Compare"
+                }
+            ],
+            "ProcessSyscalls": [
+                {
+                    "name": "ProcessCloseFile",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCloseNormal",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCloseParentHandle",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCloseTwice",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCreateBadPointer",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCreateMissingFile",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCreateMultiple",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCreateOnce",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessCreateWithArguments",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessExit",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessGetPid",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessWaitBadHandle",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessWaitClosedHandle",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "ProcessWaitNormal",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessWaitTerminated",
+                    "type": "process",
+                    "evaluator": "Compare"
+                }
+            ],
+            "ThreadSyscalls": [
+                {
+                    "name": "ThreadCloseTwice",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadCreateBadPointer",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadCreateMultiple",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadCreateOnce",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadCreateWithArguments",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadExit",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadGetTid",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadWaitBadHandle",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadWaitClosedHandle",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadWaitNormal",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ThreadWaitTerminated",
+                    "type": "process",
+                    "evaluator": "Compare"
+                }
+            ]
+        },
+        "VirtualMemory": {
+            "ProcessQuota": [
+                {
+                    "name": "ProcessQuotaGood",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessQuotaJustRight",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "ProcessQuotaMore",
+                    "type": "process",
+                    "evaluator": "Compare"
+                }
+            ],
+            "StackGrowth": [
+                {
+                    "name": "StackGrowthRecursiveFunction",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "StackGrowthVariables",
+                    "type": "process",
+                    "evaluator": "Pass"
+                }
+            ],
+            "Swap": [
+                {
+                    "name": "SwapLinear",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "SwapMultiple",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "SwapMultipleShared",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "SwapZeros",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "SwapZerosWritten",
+                    "type": "process",
+                    "evaluator": "Pass"
+                }
+            ],
+            "Syscalls": [
+                {
+                    "name": "VirtualAllocAccessFail",
+                    "type": "process",
+                    "evaluator": "Compare"
+                },
+                {
+                    "name": "VirtualAllocHugeEager",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualAllocHugeLazy",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualAllocNormal",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualAllocWriteExec",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualAllocZeros",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualFreeInvalid",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualFreeMore",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualSharedDifferentSize",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualSharedHugeEager",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualSharedHugeLazy",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualSharedLessAccess",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualSharedMoreAccess",
+                    "type": "process",
+                    "evaluator": "Pass"
+                },
+                {
+                    "name": "VirtualSharedNormal",
+                    "type": "process",
+                    "evaluator": "Pass"
+                }
+            ]
+        }
+    }
+}

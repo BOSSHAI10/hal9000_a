@@ -1,0 +1,53 @@
+{
+    "output": "artifacts/bin/HAL9000.img",
+    "disk": "0439d2b9-9dfd-49dd-b0b9-c8cc0db50e46",
+    "partitions": [
+        {
+            "type": "EFI",
+            "size": 65472,
+            "name": "BOOT",
+            "id": "35cf0283-b418-4ee3-86ea-e7a1d23d728e"
+        },
+        {
+            "type": "BDP",
+            "size": 131072,
+            "name": "DATA",
+            "id": "5bd299d7-fd05-4cbb-8de4-e7ce4505b32e"
+        },
+        {
+            "type": "LINUX_SWAP",
+            "size": 131072,
+            "name": "SWAP",
+            "id": "9a0f888b-11ce-401f-a304-3f47b00a8e65"
+        }
+    ],
+    "filesystems": [
+        {
+            "partition": "BOOT",
+            "directories": [
+                "/EFI",
+                "/EFI/BOOT",
+                "/EFI/OS",
+                "/EFI/MODULES"
+            ],
+            "files": [
+                {
+                    "source": "artifacts/bin/BOOTX64.EFI",
+                    "destination":"/EFI/BOOT/BOOTX64.EFI"
+                },
+                {
+                    "source": "artifacts/bin/HAL9000.bin",
+                    "destination": "/EFI/OS/HAL9000.bin"
+                },
+                {
+                    "source": "artifacts/Tests",
+                    "destination": "/EFI/MODULES/Tests"
+                },
+                {
+                    "source": "artifacts/apps/LightProjectApp/LightProjectApp.exe",
+                    "destination": "/EFI/BOOT/LightProjectApp.exe"
+                }
+            ]
+        } 
+    ]
+}

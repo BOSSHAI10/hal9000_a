@@ -1,0 +1,5 @@
+if (CMAKE_C_COMPILER_ID STREQUAL "Clang" OR FORCE_ELF)
+    include(ClangFlags)
+else()
+    include(MSVCFlags)
+endif()

@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.28.3 FATAL_ERROR)
+
+set(APP_@@APP_NAME@@_INCLUDES
+    ${PROJECT_SOURCE_DIR}/Shared/common
+)
+
+if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+    set(APP_@@APP_NAME@@_PDB_FLAG
+        $<$<COMPILE_LANGUAGE:C>:/Fd:$<TARGET_FILE_DIR:@@AppName@@.exe>/@@AppName@@.pdb>
+    )
+endif()
+
+file(GLOB_RECURSE APP_@@APP_NAME@@_SOURCES src/*.c src/*.yasm)
+
+add_executable(@@AppName@@.exe ${APP_@@APP_NAME@@_SOURCES})
+target_include_directories(@@AppName@@.exe PUBLIC $<$<COMPILE_LANGUAGE:C>:${APP_@@APP_NAME@@_INCLUDES}>)
+target_compile_options(@@AppName@@.exe PRIVATE ${APP_FLAGS} PRIVATE ${APP_@@APP_NAME@@_PDB_FLAG})
+target_compile_definitions(@@AppName@@.exe PRIVATE ${GLOBAL_DEFINES} PRIVATE ${MBCS_DEFINE})
+target_link_libraries(@@AppName@@.exe PRIVATE UsermodeLibrary CommonLibNoLocks CompilerAbstraction)
+target_link_options(@@AppName@@.exe PRIVATE ${APP_LINK_FLAGS})
+
+install(TARGETS @@AppName@@.exe DESTINATION apps/@@AppName@@)
+install(FILES $<TARGET_FILE_DIR:@@AppName@@.exe>/@@AppName@@.pdb DESTINATION apps/@@AppName@@ OPTIONAL)
